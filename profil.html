@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Desa Sepadu</title>
+
+    <style>
+
+        /* =========================
+           DASAR
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8e9;
+            color: #40563a;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(246, 250, 232, 0.94);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 4px 20px rgba(70, 90, 40, 0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: bold;
+
+            color: #416b36;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #91bd58;
+            border-radius: 50%;
+
+            font-size: 22px;
+
+            box-shadow: 0 5px 15px rgba(91, 130, 55, 0.25);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 23px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #40563a;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #78a747;
+        }
+
+        /* =========================
+           HERO PROFIL
+        ========================= */
+
+        .hero {
+            min-height: 60vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 130px 20px 70px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(164, 201, 100, 0.55),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(185, 143, 87, 0.4),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #e8f4ce,
+                    #cfe6a9,
+                    #ead9b7
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .hero small {
+            display: inline-block;
+
+            background: rgba(255,255,255,0.65);
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            color: #718c47;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-top: 18px;
+
+            font-size: clamp(42px, 7vw, 70px);
+
+            color: #31552d;
+        }
+
+        .hero h1 span {
+            color: #a36e39;
+        }
+
+        .hero p {
+            margin-top: 18px;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #596a50;
+        }
+
+        /* =========================
+           DEKORASI
+        ========================= */
+
+        .decor {
+            position: absolute;
+
+            border-radius: 50%;
+
+            opacity: 0.3;
+
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .decor-1 {
+            width: 150px;
+            height: 150px;
+
+            background: #83aa4e;
+
+            top: 15%;
+            left: 5%;
+        }
+
+        .decor-2 {
+            width: 100px;
+            height: 100px;
+
+            background: #a97843;
+
+            bottom: 10%;
+            right: 7%;
+
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+
+        }
+
+        /* =========================
+           PROFIL
+        ========================= */
+
+        .section {
+            padding: 85px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #9a7040;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+
+            font-size: 36px;
+
+            color: #3f6337;
+        }
+
+        .profile-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .profile-card {
+            background: rgba(255,255,255,0.75);
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(120,150,80,0.15);
+
+            box-shadow:
+                0 15px 40px rgba(67, 93, 43, 0.10);
+
+            transition: 0.4s;
+
+            animation: cardUp 0.9s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 45px rgba(67, 93, 43, 0.16);
+        }
+
+        @keyframes cardUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #dcecc2;
+
+            border-radius: 18px;
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+        .profile-card h3 {
+            color: #41683a;
+
+            margin-bottom: 15px;
+
+            font-size: 23px;
+        }
+
+        .profile-card p {
+            color: #64705e;
+
+            line-height: 1.9;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+           DATA DESA
+        ========================= */
+
+        .data-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #d9eab9,
+                    #edf4db
+                );
+        }
+
+        .data-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .data-card {
+            text-align: center;
+
+            background: rgba(255,255,255,0.75);
+
+            padding: 30px 20px;
+
+            border-radius: 22px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 10px 30px rgba(70,90,45,0.08);
+        }
+
+        .data-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .data-card .icon {
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+        .data-card h3 {
+            font-size: 17px;
+
+            color: #45643b;
+
+            margin-bottom: 7px;
+        }
+
+        .data-card p {
+            color: #8b6a42;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           VISI MISI
+        ========================= */
+
+        .visi-misi {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .visi,
+        .misi {
+            padding: 35px;
+
+            border-radius: 25px;
+
+            color: white;
+
+            box-shadow:
+                0 15px 35px rgba(60,80,40,0.15);
+        }
+
+        .visi {
+            background:
+                linear-gradient(
+                    135deg,
+                    #719c46,
+                    #9fc56b
+                );
+        }
+
+        .misi {
+            background:
+                linear-gradient(
+                    135deg,
+                    #9b6e3e,
+                    #c49a63
+                );
+        }
+
+        .visi h3,
+        .misi h3 {
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .visi p,
+        .misi li {
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+        .misi ul {
+            padding-left: 20px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #45623b;
+
+            color: #eef5df;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #d4bd91;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .profile-container,
+            .visi-misi {
+                grid-template-columns: 1fr;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 55vh;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🌿
+            </div>
+
+            Desa Sepadu
+
+        </div>
+
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="profil.html">
+                    Profil
+                </a>
+            </li>
+
+            <li>
+                <a href="sejarah.html">
+                    Sejarah
+                </a>
+            </li>
+           
+
+            <li>
+                <a href="fasilitas.html">
+                    Fasilitas
+                </a>
+            </li>
+
+            <li>
+                <a href="lokasi.html">
+                    Lokasi
+                </a>
+            </li>
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+            <li>
+                <a href="admin.html">
+                    Admin
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="decor decor-1"></div>
+        <div class="decor decor-2"></div>
+
+
+        <div class="hero-content">
+
+            <small>
+                🌱 PROFIL DESA
+            </small>
+
+            <h1>
+                Desa <span>Sepadu</span>
+            </h1>
+
+            <p>
+                Mengenal lebih dekat Desa Sepadu,
+                Dusun Semayang, Kecamatan Semparuk,
+                Kabupaten Sambas, Kalimantan Barat.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFIL DESA
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <small>
+                TENTANG DESA
+            </small>
+
+            <h2>
+                Profil Desa Sepadu
+            </h2>
+
+        </div>
+
+
+        <div class="profile-container">
+
+
+            <div class="profile-card">
+
+                <div class="profile-icon">
+                    🏡
+                </div>
+
+                <h3>
+                    Tentang Desa
+                </h3>
+
+                <p>
+                    Desa Sepadu merupakan salah satu desa
+                    yang berada di Kecamatan Semparuk,
+                    Kabupaten Sambas, Provinsi Kalimantan Barat.
+                    Desa ini memiliki lingkungan yang asri
+                    serta kehidupan masyarakat yang menjunjung
+                    tinggi kebersamaan dan gotong royong.
+                </p>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-icon">
+                    👨‍👩‍👧‍👦
+                </div>
+
+                <h3>
+                    Masyarakat
+                </h3>
+
+                <p>
+                    Masyarakat Desa Sepadu hidup dengan semangat
+                    kebersamaan. Gotong royong, kepedulian,
+                    dan kerja sama menjadi bagian penting
+                    dalam kehidupan masyarakat desa.
+                </p>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-icon">
+                    🌾
+                </div>
+
+                <h3>
+                    Potensi Desa
+                </h3>
+
+                <p>
+                    Lingkungan desa memiliki potensi alam dan
+                    kehidupan masyarakat yang dapat terus
+                    dikembangkan untuk mendukung kemajuan
+                    dan kesejahteraan masyarakat.
+                </p>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Semangat Bersama
+                </h3>
+
+                <p>
+                    Kemajuan desa membutuhkan kerja sama antara
+                    pemerintah desa dan seluruh masyarakat.
+                    Dengan kebersamaan, Desa Sepadu dapat
+                    berkembang menjadi desa yang lebih maju.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DATA DESA
+    ========================= -->
+
+    <section class="section data-section">
+
+        <div class="section-title">
+
+            <small>
+                INFORMASI WILAYAH
+            </small>
+
+            <h2>
+                Data Desa
+            </h2>
+
+        </div>
+
+
+        <div class="data-grid">
+
+
+            <div class="data-card">
+
+                <div class="icon">
+                    📍
+                </div>
+
+                <h3>
+                    Dusun
+                </h3>
+
+                <p>
+                    Semayang
+                </p>
+
+            </div>
+
+
+            <div class="data-card">
+
+                <div class="icon">
+                    🏘️
+                </div>
+
+                <h3>
+                    Desa
+                </h3>
+
+                <p>
+                    Sepadu
+                </p>
+
+            </div>
+
+
+            <div class="data-card">
+
+                <div class="icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    Kecamatan
+                </h3>
+
+                <p>
+                    Semparuk
+                </p>
+
+            </div>
+
+
+            <div class="data-card">
+
+                <div class="icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Provinsi
+                </h3>
+
+                <p>
+                    Kalimantan Barat
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VISI MISI
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <small>
+                ARAH PEMBANGUNAN
+            </small>
+
+            <h2>
+                Visi & Misi
+            </h2>
+
+        </div>
+
+
+        <div class="visi-misi">
+
+
+            <div class="visi">
+
+                <h3>
+                    🌱 Visi
+                </h3>
+
+                <p>
+                    Mewujudkan Desa Sepadu yang maju,
+                    harmonis, mandiri, sejahtera,
+                    dan berkelanjutan melalui semangat
+                    kebersamaan masyarakat.
+                </p>
+
+            </div>
+
+
+            <div class="misi">
+
+                <h3>
+                    🤝 Misi
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Meningkatkan pelayanan kepada masyarakat.
+                    </li>
+
+                    <li>
+                        Mendorong pembangunan desa yang berkelanjutan.
+                    </li>
+
+                    <li>
+                        Meningkatkan semangat gotong royong.
+                    </li>
+
+                    <li>
+                        Mengembangkan potensi desa.
+                    </li>
+
+                    <li>
+                        Meningkatkan kesejahteraan masyarakat.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Desa Sepadu by suci</span>
+        </p>
+
+        <p>
+            Dusun Semayang • Kecamatan Semparuk •
+            Kabupaten Sambas • Kalimantan Barat
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>fasilitas Desa Sepadu</title>
+
+    <style>
+
+        /* ==============================
+           RESET
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8e9;
+            color: #40563a;
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(246, 250, 232, 0.94);
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 4px 20px rgba(70, 90, 40, 0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: bold;
+            color: #416b36;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #91bd58;
+            border-radius: 50%;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 5px 15px rgba(91, 130, 55, 0.25);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #40563a;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #78a747;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 62vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 130px 20px 70px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at top left,
+                    rgba(164, 201, 100, 0.55),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(185, 143, 87, 0.4),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #e8f4ce,
+                    #cfe6a9,
+                    #ead9b7
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .hero small {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.65);
+
+            color: #718c47;
+
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-top: 18px;
+
+            font-size: clamp(42px, 7vw, 70px);
+
+            color: #31552d;
+        }
+
+        .hero h1 span {
+            color: #a36e39;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: 18px auto 0;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #596a50;
+        }
+
+
+        /* ==============================
+           DEKORASI
+        ============================== */
+
+        .decor {
+            position: absolute;
+            border-radius: 50%;
+
+            opacity: 0.3;
+
+            animation:
+                floating 5s ease-in-out infinite;
+        }
+
+        .decor-1 {
+            width: 170px;
+            height: 170px;
+
+            background: #83aa4e;
+
+            left: 4%;
+            top: 15%;
+        }
+
+        .decor-2 {
+            width: 110px;
+            height: 110px;
+
+            background: #a97843;
+
+            right: 6%;
+            bottom: 12%;
+
+            animation-delay: 1s;
+        }
+
+        .decor-3 {
+            width: 60px;
+            height: 60px;
+
+            background: #789f46;
+
+            right: 22%;
+            top: 18%;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+
+        }
+
+
+        /* ==============================
+           SECTION
+        ============================== */
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title small {
+            color: #9a7040;
+
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+
+            font-size: 36px;
+
+            color: #3f6337;
+        }
+
+        .description {
+            max-width: 800px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+
+            color: #68725f;
+
+            line-height: 1.9;
+
+            font-size: 16px;
+        }
+
+
+        /* ==============================
+           fasilitas desa
+        ============================== */
+
+        .gallery {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* ==============================
+           FOTO CARD
+        ============================== */
+
+        .gallery-card {
+            position: relative;
+
+            height: 330px;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            background: #dcebc1;
+
+            box-shadow:
+                0 15px 40px rgba(68, 92, 42, 0.13);
+
+            animation:
+                galleryAppear 0.9s ease;
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-9px);
+
+            box-shadow:
+                0 22px 50px rgba(68, 92, 42, 0.21);
+        }
+
+        @keyframes galleryAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.7s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.10);
+        }
+
+
+        /* ==============================
+           OVERLAY
+        ============================== */
+
+        .overlay {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 55px 25px 25px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(32, 52, 27, 0.85)
+                );
+
+            transform:
+                translateY(0);
+
+            transition: 0.4s;
+        }
+
+        .gallery-card:hover .overlay {
+            padding-bottom: 30px;
+        }
+
+        .overlay h3 {
+            font-size: 22px;
+
+            margin-bottom: 7px;
+        }
+
+        .overlay p {
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            color: #f2f6e9;
+        }
+
+
+        /* ==============================
+           NOMOR FOTO
+        ============================== */
+
+        .photo-number {
+            position: absolute;
+
+            top: 17px;
+            left: 17px;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.88);
+
+            color: #52713e;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            z-index: 2;
+        }
+
+
+        /* ==============================
+           QUOTE
+        ============================== */
+
+        .quote-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #dcebbd,
+                    #f1f5e3
+                );
+        }
+
+        .quote {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 50px 35px;
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #729d47,
+                    #a5c873
+                );
+
+            color: white;
+
+            box-shadow:
+                0 20px 45px rgba(60,80,40,0.16);
+
+            animation:
+                fadeUp 1s ease;
+        }
+
+        .quote-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .quote h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .quote p {
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+
+        /* ==============================
+           AJAKAN
+        ============================== */
+
+        .preserve {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .preserve-card {
+            padding: 30px 25px;
+
+            background: white;
+
+            border-radius: 24px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 35px rgba(70,90,45,0.09);
+
+            transition: 0.4s;
+        }
+
+        .preserve-card:hover {
+            transform:
+                translateY(-8px);
+        }
+
+        .preserve-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 17px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: #e0edc9;
+
+            font-size: 30px;
+        }
+
+        .preserve-card h3 {
+            color: #41683a;
+
+            margin-bottom: 10px;
+        }
+
+        .preserve-card p {
+            color: #697361;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: #45623b;
+
+            color: #eef5df;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #d4bd91;
+
+            font-weight: bold;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 950px) {
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .gallery {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .preserve {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .gallery {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .preserve {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .gallery-card {
+                height: 300px;
+            }
+
+            .hero {
+                min-height: 55vh;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         NAVBAR
+    ============================== -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🌿
+            </div>
+
+            Desa Sepadu
+
+        </div>
+
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="profil.html">
+                    Profil
+                </a>
+            </li>
+
+            <li>
+                <a href="sejarah.html">
+                    Sejarah
+                </a>
+            </li>
+
+           
+            <li>
+                <a href="fasilitas.html">
+                    Fasilitas
+                </a>
+            </li>
+
+            <li>
+                <a href="lokasi.html">
+                    Lokasi
+                </a>
+            </li>
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+            <li>
+                <a href="admin.html">
+                    Admin
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==============================
+         HERO
+    ============================== -->
+
+    <section class="hero">
+
+        <div class="decor decor-1"></div>
+        <div class="decor decor-2"></div>
+        <div class="decor decor-3"></div>
+
+
+        <div class="hero-content">
+
+            <small>
+                📸GALERI FASILITAS DESA
+            </small>
+
+
+            <h1>
+
+               Fasilitas
+                <span>Desa</span>
+
+            </h1>
+
+
+            <p>
+
+                Menampilkan suasana, lingkungan,
+                dan keindahan Desa Sepadu,
+                Dusun Semayang.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         GALERI FOTO
+    ============================== -->
+
+    <section class="section">
+
+
+        <div class="section-title">
+
+            <small>
+                GALERI DESA SEPADU
+            </small>
+
+            <h2>
+                Pesona Desa Sepadu
+            </h2>
+
+        </div>
+
+
+        <p class="description">
+
+            Desa bukan hanya tempat tinggal,
+            tetapi juga tempat tumbuhnya kehidupan,
+            kebersamaan, dan keindahan alam.
+            Berikut beberapa suasana Desa Sepadu
+            yang dapat kita nikmati.
+
+        </p>
+
+
+
+        <div class="gallery">
+
+
+            <!-- FOTO 1 -->
+
+            <div class="gallery-card">
+
+                <div class="photo-number">
+                    01
+                </div>
+
+                <img
+                    src="images/sawah.jpg"
+                    alt="Persawahan Desa Sepadu"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        🌾 Persawahan
+                    </h3>
+
+                    <p>
+                        Hamparan persawahan yang menjadi
+                        bagian dari lingkungan Desa Sepadu.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOTO 2 -->
+
+            <div class="gallery-card">
+
+                <div class="photo-number">
+                    02
+                </div>
+
+                <img
+                    src="images/depanrmh.jpg"
+                    alt="Lingkungan Rumah DI SORE HARI"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        🏡 Lingkungan Rumah
+                            DiSore Hari
+                    </h3>
+
+                    <p>
+                        Suasana lingkungan disore 
+                        hari di Desa Sepadu.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOTO 3 -->
+
+            <div class="gallery-card">
+
+                <div class="photo-number">
+                    03
+                </div>
+
+                <img
+                    src="images/jembtn.jpg"
+                    alt="Jembatan Desa Sepadu"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        🌉 Jembatan Desa
+                    </h3>
+
+                    <p>
+                        Salah satu bagian dari akses
+                        masyarakat di lingkungan desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOTO 4 -->
+
+            <div class="gallery-card">
+
+                <div class="photo-number">
+                    04
+                </div>
+
+                <img
+                    src="images/mushola.jpg"
+                    alt="Mushola Desa Sepadu"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        🕌 Mushola
+                    </h3>
+
+                    <p>
+                        Tempat ibadah yang menjadi bagian
+                        dari kehidupan masyarakat.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOTO 5 -->
+
+            <div class="gallery-card">
+
+                <div class="photo-number">
+                    05
+                </div>
+
+                <img
+                    src="images/sd.jpg"
+                    alt="Sekolah Dasar Desa Sepadu"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        🏫 Pendidikan
+                    </h3>
+
+                    <p>
+                        Lingkungan pendidikan bagi
+                        masyarakat di sekitar desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOTO 6 -->
+
+            <div class="gallery-card">
+
+                <div class="photo-number">
+                    06
+                </div>
+
+                <img
+                    src="images/10.jpg"
+                    alt="pmandangan sore hari"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        🌿pemandangan menjelang 
+                           sore
+                    </h3>
+
+                    <p>
+                        Salah satu gambaran pemandangan 
+                        yang menjelng sore dilingkungan Desa Sepadu.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         QUOTE
+    ============================== -->
+
+    <section class="section quote-section">
+
+        <div class="quote">
+
+            <div class="quote-icon">
+                🌿
+            </div>
+
+            <h2>
+                Desa yang Indah, Desa yang Dijaga
+            </h2>
+
+            <p>
+
+                Keindahan Desa Sepadu merupakan bagian
+                dari kehidupan masyarakat. Menjaga
+                kebersihan dan lingkungan berarti ikut
+                menjaga kenyamanan desa untuk generasi
+                berikutnya.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         MENJAGA DESA
+    ============================== -->
+
+    <section class="section">
+
+
+        <div class="section-title">
+
+            <small>
+                UNTUK DESA KITA
+            </small>
+
+            <h2>
+                Mari Menjaga Keindahan Desa
+            </h2>
+
+        </div>
+
+
+        <div class="preserve">
+
+
+            <div class="preserve-card">
+
+                <div class="preserve-icon">
+                    🧹
+                </div>
+
+                <h3>
+                    Jaga Kebersihan
+                </h3>
+
+                <p>
+                    Buang sampah pada tempatnya dan
+                    menjaga lingkungan agar tetap bersih.
+                </p>
+
+            </div>
+
+
+
+            <div class="preserve-card">
+
+                <div class="preserve-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Rawat Lingkungan
+                </h3>
+
+                <p>
+                    Menjaga tanaman, lingkungan,
+                    dan sumber daya alam di sekitar desa.
+                </p>
+
+            </div>
+
+
+
+            <div class="preserve-card">
+
+                <div class="preserve-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Gotong Royong
+                </h3>
+
+                <p>
+                    Bersama-sama menjaga lingkungan
+                    agar Desa Sepadu tetap nyaman.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <span>Desa Sepadu by suci</span>
+        </p>
+
+        <p>
+            Dusun Semayang •
+            Kecamatan Semparuk •
+            Kabupaten Sambas •
+            Kalimantan Barat
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

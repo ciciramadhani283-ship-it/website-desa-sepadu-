@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lokasi - Desa Sepadu</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8e9;
+            color: #405438;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 6%;
+
+            background: rgba(247, 250, 234, 0.94);
+            backdrop-filter: blur(12px);
+
+            box-shadow: 0 5px 25px rgba(50, 75, 35, 0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: bold;
+
+            color: #416936;
+        }
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #9bc765;
+
+            box-shadow: 0 5px 15px rgba(80, 120, 45, 0.25);
+
+            font-size: 23px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #405438;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #789f45;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 62vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 130px 20px 70px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(156, 201, 100, 0.55),
+                    transparent 32%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(181, 137, 80, 0.38),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #e9f5d1,
+                    #d0e7a9,
+                    #ead8b8
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            animation: muncul 1s ease;
+        }
+
+        @keyframes muncul {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 9px 19px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.7);
+
+            color: #708c45;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-top: 18px;
+
+            font-size: clamp(42px, 7vw, 72px);
+
+            color: #31562d;
+        }
+
+        .hero h1 span {
+            color: #a8743e;
+        }
+
+        .hero p {
+            max-width: 720px;
+
+            margin: 18px auto 0;
+
+            line-height: 1.8;
+
+            color: #596951;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           BULATAN ANIMASI
+        ========================= */
+
+        .circle {
+            position: absolute;
+
+            border-radius: 50%;
+
+            opacity: 0.35;
+
+            animation: melayang 5s infinite ease-in-out;
+        }
+
+        .circle-1 {
+            width: 180px;
+            height: 180px;
+
+            left: -40px;
+            top: 120px;
+
+            background: #88ad51;
+        }
+
+        .circle-2 {
+            width: 120px;
+            height: 120px;
+
+            right: 5%;
+            top: 100px;
+
+            background: #ad7946;
+
+            animation-delay: 1s;
+        }
+
+        .circle-3 {
+            width: 60px;
+            height: 60px;
+
+            right: 25%;
+            bottom: 70px;
+
+            background: #7e9f4b;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes melayang {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 85px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title small {
+            color: #a37440;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+        }
+
+        .title h2 {
+            margin-top: 8px;
+
+            font-size: 36px;
+
+            color: #416839;
+        }
+
+
+        /* =========================
+           LOCATION CONTAINER
+        ========================= */
+
+        .location-wrapper {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 0.85fr 1.4fr;
+
+            gap: 30px;
+        }
+
+
+        /* =========================
+           INFO CARD
+        ========================= */
+
+        .info-card {
+            background: white;
+
+            border-radius: 28px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 18px 45px
+                rgba(67, 92, 43, 0.12);
+
+            animation: dariKiri 1s ease;
+        }
+
+        @keyframes dariKiri {
+
+            from {
+                opacity: 0;
+                transform: translateX(-35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        .info-card h3 {
+            color: #416839;
+
+            font-size: 26px;
+
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+
+            gap: 15px;
+
+            padding: 16px 0;
+
+            border-bottom:
+                1px solid #e5ecd9;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+
+            min-width: 48px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 15px;
+
+            background: #e5f0d0;
+
+            font-size: 22px;
+        }
+
+        .info-item h4 {
+            color: #4c693e;
+
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: #6c7564;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MAP CARD
+        ========================= */
+
+        .map-card {
+            background: white;
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            min-height: 500px;
+
+            box-shadow:
+                0 18px 45px
+                rgba(67, 92, 43, 0.13);
+
+            animation: dariKanan 1s ease;
+        }
+
+        @keyframes dariKanan {
+
+            from {
+                opacity: 0;
+                transform: translateX(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        .map-card iframe {
+            width: 100%;
+            height: 500px;
+
+            border: 0;
+        }
+
+
+        /* =========================
+           TOMBOL GOOGLE MAPS
+        ========================= */
+
+        .map-button-wrapper {
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        .map-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #709c46,
+                    #9fc567
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 10px 25px
+                rgba(77, 112, 48, 0.22);
+
+            transition: 0.35s;
+        }
+
+        .map-button:hover {
+            transform: translateY(-4px) scale(1.02);
+
+            box-shadow:
+                0 15px 30px
+                rgba(77, 112, 48, 0.30);
+        }
+
+
+        /* =========================
+           KARTU WILAYAH
+        ========================= */
+
+        .area-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #dcebbd,
+                    #f3f6e6
+                );
+        }
+
+        .area-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .area-card {
+            background: white;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(67, 90, 45, 0.09);
+
+            transition: 0.4s;
+        }
+
+        .area-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .area-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 16px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: #e2efca;
+
+            font-size: 30px;
+        }
+
+        .area-card h3 {
+            color: #416839;
+
+            margin-bottom: 9px;
+        }
+
+        .area-card p {
+            color: #697261;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 45px 30px;
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #719d46,
+                    #a8c976
+                );
+
+            box-shadow:
+                0 20px 45px
+                rgba(70, 95, 40, 0.17);
+        }
+
+        .cta h2 {
+            font-size: 29px;
+
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #45623b;
+
+            color: #eef5df;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #d5bd91;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .location-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .area-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .area-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-card iframe {
+                height: 400px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🌿
+            </div>
+
+            Desa Sepadu
+
+        </div>
+
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="profil.html">
+                    Profil
+                </a>
+            </li>
+
+            <li>
+                <a href="sejarah.html">
+                    Sejarah
+                </a>
+            </li>
+
+           
+            <li>
+                <a href="fasilitas.html">
+                    Fasilitas
+                </a>
+            </li>
+
+            <li>
+                <a href="lokasi.html">
+                    Lokasi
+                </a>
+            </li>
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+            <li>
+                <a href="admin.html">
+                    Admin
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                📍 LOKASI DESA
+            </div>
+
+
+            <h1>
+                Lokasi
+                <span>Desa</span>
+            </h1>
+
+
+            <p>
+
+                Temukan lokasi Desa Sepadu,
+                Dusun Semayang, Kecamatan Semparuk,
+                Kabupaten Sambas, Kalimantan Barat.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INFORMASI LOKASI
+    ========================= -->
+
+    <section class="section">
+
+
+        <div class="title">
+
+            <small>
+                INFORMASI WILAYAH
+            </small>
+
+            <h2>
+                Desa Sepadu
+            </h2>
+
+        </div>
+
+
+
+        <div class="location-wrapper">
+
+
+            <!-- INFO -->
+
+            <div class="info-card">
+
+                <h3>
+                    📍 Detail Lokasi
+                </h3>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🏡
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Desa
+                        </h4>
+
+                        <p>
+                            Desa Sepadu
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🌿
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Dusun
+                        </h4>
+
+                        <p>
+                            Semayang
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🗺️
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Kecamatan
+                        </h4>
+
+                        <p>
+                            Semparuk
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📌
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Kabupaten
+                        </h4>
+
+                        <p>
+                            Sambas
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🌴
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Provinsi
+                        </h4>
+
+                        <p>
+                            Kalimantan Barat
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MAP -->
+
+            <div class="map-card">
+
+                <iframe
+                    src="https://www.google.com/maps?q=Desa+Sepadu,+Semparuk,+Sambas,+Kalimantan+Barat&output=embed"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+
+
+                <div class="map-button-wrapper">
+
+                    <a
+                        href="https://maps.app.goo.gl/1UZYXJDKvgGk2N568"
+                        target="_blank"
+                        class="map-button">
+
+                        📍 Buka Lokasi Desa di Google Maps
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WILAYAH
+    ========================= -->
+
+    <section class="section area-section">
+
+
+        <div class="title">
+
+            <small>
+                WILAYAH DESA
+            </small>
+
+            <h2>
+                Informasi Desa
+            </h2>
+
+        </div>
+
+
+
+        <div class="area-grid">
+
+
+            <div class="area-card">
+
+                <div class="area-icon">
+                    🏡
+                </div>
+
+                <h3>
+                    Desa Sepadu
+                </h3>
+
+                <p>
+                    Wilayah Desa Sepadu yang berada
+                    di Kabupaten Sambas, Kalimantan Barat.
+                </p>
+
+            </div>
+
+
+
+            <div class="area-card">
+
+                <div class="area-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Dusun Semayang
+                </h3>
+
+                <p>
+                    Dusun Semayang merupakan bagian
+                    wilayah yang terdapat di Desa Sepadu.
+                </p>
+
+            </div>
+
+
+
+            <div class="area-card">
+
+                <div class="area-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    Kecamatan Semparuk
+                </h3>
+
+                <p>
+                    Desa Sepadu berada dalam wilayah
+                    Kecamatan Semparuk, Kabupaten Sambas.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="section">
+
+        <div class="cta">
+
+            <h2>
+                🌱 Temukan Desa Sepadu
+            </h2>
+
+            <p>
+
+                Gunakan Google Maps untuk melihat
+                lokasi Desa Sepadu dan mendapatkan
+                petunjuk perjalanan menuju desa.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <span>Desa Sepadu by suci</span>
+        </p>
+
+        <p>
+            Dusun Semayang •
+            Kecamatan Semparuk •
+            Kabupaten Sambas •
+            Kalimantan Barat
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

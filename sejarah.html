@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sejarah Desa Sepadu</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8e9;
+            color: #40563a;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(246, 250, 232, 0.94);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 4px 20px rgba(70, 90, 40, 0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: bold;
+            color: #416b36;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #91bd58;
+            border-radius: 50%;
+
+            font-size: 22px;
+
+            box-shadow: 0 5px 15px rgba(91, 130, 55, 0.25);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 23px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #40563a;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #78a747;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 62vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 130px 20px 70px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(164, 201, 100, 0.55),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(185, 143, 87, 0.4),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #e8f4ce,
+                    #cfe6a9,
+                    #ead9b7
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .hero small {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.65);
+
+            color: #718c47;
+
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-top: 18px;
+
+            font-size: clamp(42px, 7vw, 70px);
+
+            color: #31552d;
+        }
+
+        .hero h1 span {
+            color: #a36e39;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: 18px auto 0;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #596a50;
+        }
+
+        /* =========================
+           DEKORASI
+        ========================= */
+
+        .decor {
+            position: absolute;
+
+            border-radius: 50%;
+
+            opacity: 0.3;
+
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        .decor-1 {
+            width: 170px;
+            height: 170px;
+
+            background: #83aa4e;
+
+            left: 4%;
+            top: 15%;
+        }
+
+        .decor-2 {
+            width: 110px;
+            height: 110px;
+
+            background: #a97843;
+
+            right: 6%;
+            bottom: 12%;
+
+            animation-delay: 1s;
+        }
+
+        .decor-3 {
+            width: 55px;
+            height: 55px;
+
+            background: #789f46;
+
+            right: 22%;
+            top: 18%;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #9a7040;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+
+            font-size: 36px;
+
+            color: #3f6337;
+        }
+
+        /* =========================
+           CERITA SEJARAH
+        ========================= */
+
+        .history-container {
+            max-width: 1000px;
+
+            margin: auto;
+
+            position: relative;
+        }
+
+        .history-container::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+            bottom: 0;
+
+            width: 4px;
+
+            background: linear-gradient(
+                to bottom,
+                #83aa4e,
+                #b68a54
+            );
+
+            transform: translateX(-50%);
+
+            border-radius: 10px;
+        }
+
+        .history-item {
+            width: 50%;
+
+            padding: 15px 40px;
+
+            position: relative;
+
+            animation: reveal 1s ease;
+        }
+
+        @keyframes reveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .history-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .history-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .history-dot {
+            position: absolute;
+
+            width: 20px;
+            height: 20px;
+
+            top: 30px;
+
+            background: #78a64a;
+
+            border: 5px solid #eef5dd;
+
+            border-radius: 50%;
+
+            box-shadow: 0 0 0 3px #a7c978;
+        }
+
+        .history-item:nth-child(odd) .history-dot {
+            right: -10px;
+        }
+
+        .history-item:nth-child(even) .history-dot {
+            left: -10px;
+        }
+
+        .history-card {
+            background: rgba(255,255,255,0.82);
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 12px 35px rgba(68, 92, 42, 0.10);
+
+            border: 1px solid rgba(120,150,80,0.15);
+
+            transition: 0.4s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 18px 40px rgba(68, 92, 42, 0.16);
+        }
+
+        .history-card h3 {
+            color: #41683a;
+
+            margin-bottom: 12px;
+
+            font-size: 21px;
+        }
+
+        .history-card p {
+            color: #66715f;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+           CERITA UTAMA
+        ========================= */
+
+        .story-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #dcebbd,
+                    #f1f5e3
+                );
+        }
+
+        .story {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
+
+            align-items: stretch;
+        }
+
+        .story-card {
+            padding: 35px;
+
+            border-radius: 28px;
+
+            background: rgba(255,255,255,0.8);
+
+            box-shadow:
+                0 15px 40px rgba(68, 92, 42, 0.10);
+
+            transition: 0.4s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .story-card h3 {
+            color: #41683a;
+
+            margin-bottom: 18px;
+
+            font-size: 25px;
+        }
+
+        .story-card p {
+            color: #65715d;
+
+            line-height: 1.9;
+
+            font-size: 15px;
+        }
+
+        .story-highlight {
+            background:
+                linear-gradient(
+                    135deg,
+                    #729d47,
+                    #a5c873
+                );
+
+            color: white;
+        }
+
+        .story-highlight h3,
+        .story-highlight p {
+            color: white;
+        }
+
+        /* =========================
+           NILAI BUDAYA
+        ========================= */
+
+        .values {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .value-card {
+            padding: 30px 25px;
+
+            text-align: center;
+
+            background: white;
+
+            border-radius: 23px;
+
+            box-shadow:
+                0 12px 35px rgba(70,90,45,0.09);
+
+            transition: 0.4s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .value-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: #e0edc9;
+
+            font-size: 30px;
+        }
+
+        .value-card h3 {
+            color: #41683a;
+
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: #697361;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           PESAN
+        ========================= */
+
+        .message {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 45px 35px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a97843,
+                    #c9a46f
+                );
+
+            color: white;
+
+            box-shadow:
+                0 20px 45px rgba(112, 80, 40, 0.16);
+
+            animation: fadeUp 1s ease;
+        }
+
+        .message h2 {
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+        .message p {
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #45623b;
+
+            color: #eef5df;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #d4bd91;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+            }
+
+            .values {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .history-container::before {
+                left: 12px;
+            }
+
+            .history-item,
+            .history-item:nth-child(even) {
+                width: 100%;
+
+                left: 0;
+
+                text-align: left;
+
+                padding-left: 40px;
+                padding-right: 0;
+            }
+
+            .history-item:nth-child(odd) .history-dot,
+            .history-item:nth-child(even) .history-dot {
+                left: 2px;
+                right: auto;
+            }
+
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🌿
+            </div>
+
+            Desa Sepadu
+
+        </div>
+
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">Beranda</a>
+            </li>
+
+            <li>
+                <a href="profil.html">Profil</a>
+            </li>
+
+             <li>
+                <a href="sejarah.html">Sejarah</a>
+            </li>
+           
+
+            <li>
+                <a href="fasilitas.html">Fasilitas</a>
+            </li>
+
+            <li>
+                <a href="lokasi.html">Lokasi</a>
+            </li>
+
+            <li>
+                <a href="kontak.html">Kontak</a>
+            </li>
+
+            <li>
+                <a href="admin.html">Admin</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="decor decor-1"></div>
+        <div class="decor decor-2"></div>
+        <div class="decor decor-3"></div>
+
+
+        <div class="hero-content">
+
+            <small>
+                📖 SEJARAH DESA
+            </small>
+
+            <h1>
+                Sejarah <span>Sepadu</span>
+            </h1>
+
+            <p>
+                Mengenal perjalanan dan perkembangan
+                Desa Sepadu serta semangat masyarakat
+                dalam membangun desa.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TIMELINE
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <small>
+                PERJALANAN DESA
+            </small>
+
+            <h2>
+                Jejak Sejarah Desa
+            </h2>
+
+        </div>
+
+
+        <div class="history-container">
+
+
+            <div class="history-item">
+
+                <div class="history-dot"></div>
+
+                <div class="history-card">
+
+                    <h3>
+                        🌱 Awal Perkembangan
+                    </h3>
+
+                    <p>
+                        Wilayah yang kemudian berkembang menjadi
+                        Desa Sepadu tumbuh melalui kehidupan
+                        masyarakat yang saling bekerja sama
+                        dan memanfaatkan lingkungan sekitar.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="history-item">
+
+                <div class="history-dot"></div>
+
+                <div class="history-card">
+
+                    <h3>
+                        🏡 Terbentuknya Permukiman
+                    </h3>
+
+                    <p>
+                        Seiring bertambahnya masyarakat,
+                        permukiman berkembang dan terbentuk
+                        kehidupan sosial yang semakin teratur
+                        dalam lingkungan desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="history-item">
+
+                <div class="history-dot"></div>
+
+                <div class="history-card">
+
+                    <h3>
+                        🤝 Semangat Gotong Royong
+                    </h3>
+
+                    <p>
+                        Gotong royong menjadi bagian penting
+                        dalam kehidupan masyarakat. Berbagai
+                        kegiatan dilakukan bersama untuk
+                        kepentingan lingkungan dan masyarakat.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="history-item">
+
+                <div class="history-dot"></div>
+
+                <div class="history-card">
+
+                    <h3>
+                        🌿 Desa Saat Ini
+                    </h3>
+
+                    <p>
+                        Desa Sepadu terus berkembang dengan
+                        tetap menjaga kebersamaan masyarakat,
+                        lingkungan, budaya, dan potensi yang
+                        dimiliki desa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERITA DESA
+    ========================= -->
+
+    <section class="section story-section">
+
+        <div class="section-title">
+
+            <small>
+                TENTANG PERJALANAN DESA
+            </small>
+
+            <h2>
+                Cerita Desa Sepadu
+            </h2>
+
+        </div>
+
+
+        <div class="story">
+
+
+            <div class="story-card">
+
+                <h3>
+                    🌾 Kehidupan Masyarakat
+                </h3>
+
+                <p>
+                    Kehidupan masyarakat Desa Sepadu tidak
+                    terlepas dari hubungan sosial yang erat.
+                    Kebersamaan dan kepedulian terhadap
+                    lingkungan menjadi bagian dari kehidupan
+                    sehari-hari.
+                </p>
+
+                <br>
+
+                <p>
+                    Masyarakat terus berusaha menjaga lingkungan
+                    desa agar tetap nyaman serta mendukung
+                    perkembangan kehidupan bersama.
+                </p>
+
+            </div>
+
+
+            <div class="story-card story-highlight">
+
+                <h3>
+                    🌿 Semangat Membangun
+                </h3>
+
+                <p>
+                    Perjalanan sebuah desa merupakan perjalanan
+                    bersama. Pemerintah desa dan masyarakat
+                    memiliki peran dalam menjaga serta
+                    mengembangkan Desa Sepadu.
+                </p>
+
+                <br>
+
+                <p>
+                    Semangat kebersamaan menjadi salah satu
+                    kekuatan untuk menghadapi perubahan dan
+                    membangun masa depan desa.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NILAI MASYARAKAT
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <small>
+                NILAI YANG DIJAGA
+            </small>
+
+            <h2>
+                Semangat Masyarakat
+            </h2>
+
+        </div>
+
+
+        <div class="values">
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Gotong Royong
+                </h3>
+
+                <p>
+                    Saling membantu untuk kepentingan
+                    bersama dan menjaga kebersamaan
+                    masyarakat.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Kepedulian
+                </h3>
+
+                <p>
+                    Menumbuhkan rasa peduli terhadap
+                    sesama masyarakat dan lingkungan.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Menjaga Lingkungan
+                </h3>
+
+                <p>
+                    Bersama-sama menjaga lingkungan
+                    desa agar tetap bersih, asri,
+                    dan nyaman.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PESAN
+    ========================= -->
+
+    <section class="section">
+
+        <div class="message">
+
+            <h2>
+                🌱 Menjaga Sejarah Desa
+            </h2>
+
+            <p>
+                Sejarah bukan hanya cerita tentang masa lalu,
+                tetapi juga menjadi bagian dari identitas
+                masyarakat. Mari menjaga nilai kebersamaan,
+                budaya, dan lingkungan Desa Sepadu untuk
+                generasi yang akan datang.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Desa Sepadu by suci</span>
+        </p>
+
+        <p>
+            Dusun Semayang • Kecamatan Semparuk •
+            Kabupaten Sambas • Kalimantan Barat
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

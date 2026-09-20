@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kontak - Desa Sepadu</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f1df;
+            color: #333;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            background: #66851f;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: #e7efc9;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: linear-gradient(
+                rgba(80, 105, 20, 0.8),
+                rgba(80, 105, 20, 0.8)
+            );
+
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* =========================
+           KONTAK
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #0002;
+            margin-bottom: 35px;
+        }
+
+        .contact-box h2 {
+            color: #66851f;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #0002;
+        }
+
+        .form-box h2 {
+            color: #66851f;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #66851f;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #66851f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #506b18;
+        }
+
+        /* =========================
+           HASIL
+        ========================= */
+
+        #hasil {
+            margin-top: 20px;
+        }
+
+        .berhasil {
+            background: #e5efcf;
+            border-left: 6px solid #66851f;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .token {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 20px;
+            background: #66851f;
+            color: white;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .gagal {
+            background: #ffe1e1;
+            color: #a00000;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 50px;
+            background: #66851f;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .contact-box,
+            .form-box {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        🌿 Desa Sepadu
+    </div>
+
+    <ul class="menu">
+
+        <li>
+            <a href="index.html">Beranda</a>
+        </li>
+
+        <li>
+            <a href="profil.html">Profil</a>
+        </li>
+
+        <li>
+            <a href="sejarah.html">Sejarah</a>
+        </li>
+
+        <li>
+            <a href="keindahan.html">Keindahan</a>
+        </li>
+
+        <li>
+            <a href="lokasi.html">Lokasi</a>
+        </li>
+
+        <li>
+            <a href="kontak.html">Kontak</a>
+        </li>
+
+        <li>
+            <a href="admin.html">Admin</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>Hubungi Desa Sepadu</h1>
+
+    <p>
+        Sampaikan pertanyaan, saran, dan pengaduan
+        untuk kemajuan Desa Sepadu.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CONTENT
+========================= -->
+
+<div class="container">
+
+
+    <!-- INFORMASI KONTAK -->
+
+    <div class="contact-box">
+
+        <h2>📞 Informasi Kontak</h2>
+
+        <p class="info">
+            📍 Desa Sepadu, Dusun Semayang,
+            Kecamatan Semparuk,
+            Kabupaten Sambas,
+            Kalimantan Barat
+        </p>
+
+        <p class="info">
+            📱 Telepon: 085762902609
+        </p>
+
+        <p class="info">
+            📧 Email: semayang@gmail.com
+        </p>
+
+    </div>
+
+
+    <!-- FORM PENGADUAN -->
+
+    <div class="form-box">
+
+        <h2>📢 Pengaduan Masyarakat</h2>
+
+        <form id="formPengaduan">
+
+
+            <label for="nama">
+                Nama Lengkap
+            </label>
+
+            <input
+                type="text"
+                id="nama"
+                placeholder="Masukkan nama lengkap"
+                required
+            >
+
+
+            <label for="kontak">
+                Nomor HP
+            </label>
+
+            <input
+                type="text"
+                id="kontak"
+                placeholder="Masukkan nomor HP"
+                required
+            >
+
+
+            <label for="kategori">
+                Kategori Pengaduan
+            </label>
+
+            <select id="kategori" required>
+
+                <option value="">
+                    -- Pilih Kategori --
+                </option>
+
+                <option value="Infrastruktur">
+                    Infrastruktur
+                </option>
+
+                <option value="Kebersihan">
+                    Kebersihan
+                </option>
+
+                <option value="Pelayanan">
+                    Pelayanan
+                </option>
+
+                <option value="Lingkungan">
+                    Lingkungan
+                </option>
+
+                <option value="Keamanan">
+                    Keamanan
+                </option>
+
+                <option value="Lainnya">
+                    Lainnya
+                </option>
+
+            </select>
+
+
+            <label for="pengaduan">
+                Isi Pengaduan
+            </label>
+
+            <textarea
+                id="pengaduan"
+                placeholder="Tuliskan pengaduan atau saran kamu..."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+                📢 Kirim Pengaduan
+            </button>
+
+        </form>
+
+
+        <!-- HASIL PENGIRIMAN -->
+
+        <div id="hasil"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Desa Sepadu -
+        Dusun Semayang, Kecamatan Semparuk,
+        Kabupaten Sambas
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT API
+========================= -->
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyL41wzwaoKCWK_t7Ktb_DIqDJbP8ZvL6QZ_VhjBmwNNeeU5pP25fJSP7p_lHntfqhvLw/exec";
+
+const form =
+    document.getElementById("formPengaduan");
+
+const hasil =
+    document.getElementById("hasil");
+
+
+// ==========================================
+// CALLBACK DARI GOOGLE APPS SCRIPT
+// ==========================================
+
+window.callback = function(data) {
+
+    if (data.success) {
+
+        hasil.innerHTML = `
+
+            <div class="berhasil">
+
+                <h3>
+                    ✅ Pengaduan Berhasil Dikirim
+                </h3>
+
+                <p style="margin-top:10px;">
+                    Simpan token berikut
+                    untuk mengecek status pengaduan:
+                </p>
+
+                <div class="token">
+                    ${data.token}
+                </div>
+
+                <p style="margin-top:12px;">
+                    Jangan sampai token ini hilang.
+                </p>
+
+            </div>
+
+        `;
+
+        form.reset();
+
+    } else {
+
+        hasil.innerHTML = `
+
+            <div class="gagal">
+
+                ❌ ${data.message}
+
+            </div>
+
+        `;
+
+    }
+
+};
+
+
+// ==========================================
+// KIRIM PENGADUAN
+// ==========================================
+
+form.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        hasil.innerHTML = `
+
+            <div style="
+                padding:15px;
+                background:#f5f1df;
+                border-radius:10px;
+                text-align:center;
+            ">
+
+                ⏳ Mengirim pengaduan...
+
+            </div>
+
+        `;
+
+
+        const nama =
+            document.getElementById("nama").value;
+
+        const kontak =
+            document.getElementById("kontak").value;
+
+        const kategori =
+            document.getElementById("kategori").value;
+
+        const pengaduan =
+            document.getElementById("pengaduan").value;
+
+
+        const script =
+            document.createElement("script");
+
+
+        script.src =
+            API_URL +
+
+            "?action=simpan" +
+
+            "&nama=" +
+            encodeURIComponent(nama) +
+
+            "&kontak=" +
+            encodeURIComponent(kontak) +
+
+            "&kategori=" +
+            encodeURIComponent(kategori) +
+
+            "&pengaduan=" +
+            encodeURIComponent(pengaduan) +
+
+            "&callback=callback" +
+
+            "&t=" +
+            Date.now();
+
+
+        script.onerror = function() {
+
+            hasil.innerHTML = `
+
+                <div class="gagal">
+
+                    ❌ Tidak dapat terhubung
+                    ke Google Apps Script.
+
+                    <br><br>
+
+                    Periksa kembali URL Web App.
+
+                </div>
+
+            `;
+
+        };
+
+
+        document.body.appendChild(script);
+
+    }
+);
+
+</script>
+</body>
+
+</html>

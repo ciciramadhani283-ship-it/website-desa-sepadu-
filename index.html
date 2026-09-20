@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desa Sepadu - Dusun Semayang</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8e9;
+            color: #354b32;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(246, 250, 232, 0.94);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 4px 20px rgba(70, 90, 40, 0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 21px;
+            font-weight: bold;
+
+            color: #416b36;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #91bd58;
+            border-radius: 50%;
+
+            font-size: 22px;
+
+            box-shadow: 0 5px 15px rgba(91, 130, 55, 0.25);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #40563a;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #78a747;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 60px;
+
+            background:
+                radial-gradient(circle at top left,
+                rgba(170, 207, 105, 0.5),
+                transparent 35%),
+
+                radial-gradient(circle at bottom right,
+                rgba(180, 140, 82, 0.35),
+                transparent 35%),
+
+                linear-gradient(
+                    135deg,
+                    #e8f4ce,
+                    #cfe6a9,
+                    #ead9b7
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* lingkaran dekorasi */
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.25;
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        .circle.one {
+            width: 180px;
+            height: 180px;
+
+            background: #82aa4d;
+
+            top: 18%;
+            left: 5%;
+        }
+
+        .circle.two {
+            width: 120px;
+            height: 120px;
+
+            background: #a77a45;
+
+            bottom: 15%;
+            right: 8%;
+
+            animation-delay: 1s;
+        }
+
+        .circle.three {
+            width: 70px;
+            height: 70px;
+
+            background: #789f46;
+
+            top: 30%;
+            right: 20%;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero-content {
+            max-width: 850px;
+            z-index: 2;
+
+            animation: fadeUp 1.2s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .small-title {
+            display: inline-block;
+
+            padding: 9px 18px;
+            margin-bottom: 20px;
+
+            background: rgba(255,255,255,0.6);
+
+            border-radius: 30px;
+
+            color: #617d3c;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 82px);
+
+            line-height: 1.05;
+
+            color: #31552d;
+
+            margin-bottom: 20px;
+
+            text-shadow: 0 5px 20px rgba(54, 82, 39, 0.12);
+        }
+
+        .hero h1 span {
+            color: #a36e39;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+
+            font-size: 18px;
+            line-height: 1.8;
+
+            color: #526348;
+        }
+
+        .button-area {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 27px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow: 0 8px 20px rgba(75, 100, 45, 0.15);
+        }
+
+        .btn-primary {
+            background: #77a84a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #638f3b;
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary {
+            background: #b98a55;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #9e713f;
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           SAMBUTAN
+        ========================= */
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #8a693e;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+
+            font-size: 38px;
+
+            color: #3e6037;
+        }
+
+        .welcome {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .welcome-text h3 {
+            font-size: 32px;
+            color: #3d6336;
+
+            margin-bottom: 18px;
+        }
+
+        .welcome-text p {
+            line-height: 1.9;
+            color: #61705b;
+
+            margin-bottom: 15px;
+        }
+
+        .welcome-card {
+            min-height: 330px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #9fc66a,
+                    #c6dca0,
+                    #d7bd91
+                );
+
+            box-shadow:
+                0 20px 50px rgba(68, 92, 42, 0.15);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            background: rgba(255,255,255,0.18);
+
+            border-radius: 50%;
+
+            top: -80px;
+            right: -60px;
+        }
+
+        .welcome-icon {
+            font-size: 100px;
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #45623b;
+
+            color: #eef5df;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #d4bd91;
+            font-weight: bold;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .welcome {
+                grid-template-columns: 1fr;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🌿
+            </div>
+
+            Desa Sepadu
+
+        </div>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">Beranda</a>
+            </li>
+
+            <li>
+                <a href="profil.html">Profil</a>
+            </li>
+
+            <li>
+                <a href="sejarah.html">Sejarah</a>
+            </li>
+
+            <li>
+                <a href="fasilitas.html">Fasilitas</a>
+            </li>
+
+            <li>
+                <a href="lokasi.html">Lokasi</a>
+            </li>
+
+            <li>
+                <a href="kontak.html">Kontak</a>
+            </li>
+
+            <li>
+                <a href="admin.html">Admin</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                🌱 WEBSITE RESMI DESA
+            </div>
+
+            <h1>
+                Desa <span>Sepadu</span>
+            </h1>
+
+            <p>
+                Dusun Semayang, Kecamatan Semparuk,
+                Kabupaten Sambas, Provinsi Kalimantan Barat.
+            </p>
+
+            <div class="button-area">
+
+                <a href="profil.html"
+                   class="btn btn-primary">
+                    Jelajahi Desa
+                </a>
+
+                <a href="kontak.html"
+                   class="btn btn-secondary">
+                    Hubungi Kami
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SAMBUTAN
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <small>SELAMAT DATANG</small>
+
+            <h2>
+                Mengenal Desa Sepadu
+            </h2>
+
+        </div>
+
+
+        <div class="welcome">
+
+            <div class="welcome-text">
+
+                <h3>
+                    Desa yang Asri dan Bersama
+                </h3>
+
+                <p>
+                    Selamat datang di website Desa Sepadu,
+                    Dusun Semayang, Kecamatan Semparuk,
+                    Kabupaten Sambas, Kalimantan Barat.
+                </p>
+
+                <p>
+                    Website ini menjadi media informasi
+                    mengenai profil desa, sejarah, fasilitas,
+                    keindahan, lokasi, kontak, serta layanan
+                    pengaduan masyarakat.
+                </p>
+
+                <a href="profil.html"
+                   class="btn btn-primary">
+                    Lihat Profil Desa →
+                </a>
+
+            </div>
+
+
+            <div class="welcome-card">
+
+                <div class="welcome-icon">
+                    🏡
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Desa Sepadu by suci</span>
+        </p>
+
+        <p>
+            Dusun Semayang • Kecamatan Semparuk • Kabupaten Sambas
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
