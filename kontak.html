@@ -465,23 +465,22 @@
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyL41wzwaoKCWK_t7Ktb_DIqDJbP8ZvL6QZ_VhjBmwNNeeU5pP25fJSP7p_lHntfqhvLw/exec";
-const form =
-    document.getElementById("formPengaduan");
 
-const hasil =
-    document.getElementById("hasil");
+const form = document.getElementById("formPengaduan");
+const hasil = document.getElementById("hasil");
 
 
 // ==========================================
-// CALLBACK DARI GOOGLE APPS SCRIPT
+// CALLBACK GOOGLE APPS SCRIPT
 // ==========================================
 
 window.callback = function(data) {
 
+    console.log("Data dari Google Apps Script:", data);
+
     if (data.success) {
 
         hasil.innerHTML = `
-
             <div class="berhasil">
 
                 <h3>
@@ -502,7 +501,6 @@ window.callback = function(data) {
                 </p>
 
             </div>
-
         `;
 
         form.reset();
@@ -510,13 +508,9 @@ window.callback = function(data) {
     } else {
 
         hasil.innerHTML = `
-
             <div class="gagal">
-
                 ❌ ${data.message}
-
             </div>
-
         `;
 
     }
@@ -528,93 +522,113 @@ window.callback = function(data) {
 // KIRIM PENGADUAN
 // ==========================================
 
-form.addEventListener(
-    "submit",
-    function(event) {
+form.addEventListener("submit", function(event) {
 
-        event.preventDefault();
+    event.preventDefault();
 
+
+    hasil.innerHTML = `
+        <div style="
+            padding:15px;
+            background:#f5f1df;
+            border-radius:10px;
+            text-align:center;
+        ">
+            ⏳ Mengirim pengaduan...
+        </div>
+    `;
+
+
+    const nama =
+        document.getElementById("nama").value.trim();
+
+    const kontak =
+        document.getElementById("kontak").value.trim();
+
+    const kategori =
+        document.getElementById("kategori").value;
+
+    const pengaduan =
+        document.getElementById("pengaduan").value.trim();
+
+
+    // ==========================================
+    // CEK ISIAN
+    // ==========================================
+
+    if (!nama || !kontak || !kategori || !pengaduan) {
 
         hasil.innerHTML = `
-
-            <div style="
-                padding:15px;
-                background:#f5f1df;
-                border-radius:10px;
-                text-align:center;
-            ">
-
-                ⏳ Mengirim pengaduan...
-
+            <div class="gagal">
+                ❌ Semua data harus diisi.
             </div>
-
         `;
 
-
-        const nama =
-            document.getElementById("nama").value;
-
-        const kontak =
-            document.getElementById("kontak").value;
-
-        const kategori =
-            document.getElementById("kategori").value;
-
-        const pengaduan =
-            document.getElementById("pengaduan").value;
-
-
-        const script =
-            document.createElement("script");
-
-
-        script.src =
-            API_URL +
-
-            "?action=simpan" +
-
-            "&nama=" +
-            encodeURIComponent(nama) +
-
-            "&kontak=" +
-            encodeURIComponent(kontak) +
-
-            "&kategori=" +
-            encodeURIComponent(kategori) +
-
-            "&pengaduan=" +
-            encodeURIComponent(pengaduan) +
-
-            "&callback=callback" +
-
-            "&t=" +
-            Date.now();
-
-
-        script.onerror = function() {
-
-            hasil.innerHTML = `
-
-                <div class="gagal">
-
-                    ❌ Tidak dapat terhubung
-                    ke Google Apps Script.
-
-                    <br><br>
-
-                    Periksa kembali URL Web App.
-
-                </div>
-
-            `;
-
-        };
-
-
-        document.body.appendChild(script);
-
+        return;
     }
-);
+
+
+    // ==========================================
+    // BUAT SCRIPT
+    // ==========================================
+
+    const script =
+        document.createElement("script");
+
+
+    script.src =
+        API_URL +
+        "?action=simpan" +
+        "&nama=" +
+        encodeURIComponent(nama) +
+        "&kontak=" +
+        encodeURIComponent(kontak) +
+        "&kategori=" +
+        encodeURIComponent(kategori) +
+        "&pengaduan=" +
+        encodeURIComponent(pengaduan) +
+        "&callback=callback" +
+        "&t=" +
+        Date.now();
+
+
+    // ==========================================
+    // JIKA GAGAL TERHUBUNG
+    // ==========================================
+
+    script.onerror = function() {
+
+        hasil.innerHTML = `
+            <div class="gagal">
+
+                ❌ Tidak dapat terhubung
+                ke Google Apps Script.
+
+                <br><br>
+
+                Coba:
+                <br>
+                1. Refresh halaman
+                <br>
+                2. Gunakan Google Chrome
+                <br>
+                3. Matikan mode hemat data
+                <br>
+                4. Coba jaringan internet lain
+
+            </div>
+        `;
+
+    };
+
+
+    // ==========================================
+    // MASUKKAN SCRIPT KE HALAMAN
+    // ==========================================
+
+    document.body.appendChild(script);
+
+});
 
 </script>
 </body>
